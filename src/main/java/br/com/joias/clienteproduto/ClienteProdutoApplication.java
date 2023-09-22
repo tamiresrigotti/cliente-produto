@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.joias.clienteproduto.cliente.domain.Cliente;
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/")
@@ -20,5 +22,5 @@ public class ClienteProdutoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ClienteProdutoApplication.class, args);
 	}
-
+;
 }
