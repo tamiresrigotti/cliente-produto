@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.id.CompositeNestedGeneratedValueGenerator.GenerationContextLocator;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.joias.clienteproduto.cliente.application.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,19 +47,17 @@ public class Cliente {
 
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
+		
 
-	public Cliente(@NotBlank String nomeCompleto, @NotBlank @Email String email, String celular, String telefone,
-			Sexo sexo, @NotNull LocalDate dataNascimento, @CPF String cpf, Boolean aceitaTermos,
-			LocalDateTime momentoDoCadastro) {
-		this.nomeCompleto = nomeCompleto;
-		this.email = email;
-		this.celular = celular;
-		this.telefone = telefone;
-		this.sexo = sexo;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
-		this.aceitaTermos = aceitaTermos;
+	public Cliente(ClienteRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.email = clienteRequest.getEmail();
+		this.celular = clienteRequest.getCelular();
+		this.telefone = clienteRequest.getTelefone();
+		this.sexo = clienteRequest.getSexo();
+		this.dataNascimento = clienteRequest.getDataNascimento();
+		this.cpf = clienteRequest.getCpf();
+		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();
 	}
-
 }
