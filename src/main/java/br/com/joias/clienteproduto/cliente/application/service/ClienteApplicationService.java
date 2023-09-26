@@ -6,13 +6,15 @@ import br.com.joias.clienteproduto.cliente.application.api.ClienteRequest;
 import br.com.joias.clienteproduto.cliente.application.api.ClienteResponse;
 import br.com.joias.clienteproduto.cliente.application.repository.ClienteRepository;
 import br.com.joias.clienteproduto.cliente.domain.Cliente;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
-public class ClienteApplicationService implements ClienteService {
+@RequiredArgsConstructor
 
-	private ClienteRepository clienteRepository;
+public class ClienteApplicationService implements ClienteService {
+	private final ClienteRepository clienteRepository;
 
 	@Override
 	public ClienteResponse criaCliente(ClienteRequest clienteRequest) {
@@ -23,5 +25,4 @@ public class ClienteApplicationService implements ClienteService {
 				.idCliente(cliente.getIdCliente())
 				.build();
 	}
-
 }
